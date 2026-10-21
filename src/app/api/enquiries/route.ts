@@ -1,4 +1,4 @@
-import { db } from "@/db";
+import { getDb } from "@/db";
 import { enquiries } from "@/db/schema";
 import { NextResponse } from "next/server";
 
@@ -72,7 +72,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    await db.insert(enquiries).values({
+    await getDb().insert(enquiries).values({
       fullName,
       businessName,
       email,
